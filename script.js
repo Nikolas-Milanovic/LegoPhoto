@@ -41,6 +41,7 @@ document.getElementById("input_img").onload = function() {
         }
     }
     
+    console.log("testing output");
     console.log(rgb_pixels[0][0].r);
     console.log(rgb_pixels[0][0].g);
     console.log(rgb_pixels[0][0].b);
