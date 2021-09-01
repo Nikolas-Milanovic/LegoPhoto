@@ -40,8 +40,10 @@ document.getElementById("input_img").onload = function() {
             i+=4;
         }
     }
-      
-    console.log(rgb_pixels[0][0]);
+    
+    console.log(rgb_pixels[0][0].r);
+    console.log(rgb_pixels[0][0].g);
+    console.log(rgb_pixels[0][0].b);
     //ctx.putImageData(imgData, 0, 0);
 
 
