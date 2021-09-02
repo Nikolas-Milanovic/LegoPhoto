@@ -6,14 +6,13 @@
 // 5) provide instructions
 
 document.getElementById("input_img").onload = function() {
-//function Img_processing() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     var img = document.getElementById("input_img");
     ctx.drawImage(img, 0, 0);
     var imgData=ctx.getImageData(0, 0, c.width, c.height);
 
-    var scale=32;
+    var scale=40;
     var height = img.naturalHeight || img.offsetHeight || img.height;
     var width = img.naturalWidth || img.offsetWidth || img.width;
     
@@ -37,17 +36,25 @@ document.getElementById("input_img").onload = function() {
             i+=4;
         }
     }
+
     height=scale*(~~(height/scale));
     width=scale*(~~(width/scale));
+    console.log(height+" "+width);
+    console.log(rgb_pixels.length);
+    console.log(rgb_pixels[rgb_pixels.length-1].length);
+    console.log(rgb_pixels[height-1][width-1]);
+
 
     //get the average color of the pixels and paint that color onto the canvas
-    for(var x=0; x < height; x+=scale){
-      for(var y=0; y < width; y+=scale){
-        var rgb=getAvrg(scale,x,y,rgb_pixels);
-        ctx.fillStyle="rgb("+rgb.r+","+rgb.g+","+rgb.b+")";
-        //ctx.fillStyle = "rgb(0,0,0)";
-        ctx.fillRect(x,y,scale,scale);
-        //setAvrg(scale,x,y,rgb_avrg,ctx);
+    for(var row=0; row < height; row+=scale){
+      for(var col=0; col < width; col+=scale){
+        //console.log("row:"+row+"col:"+col);
+        var rgb=getAvrg(scale,row,col,rgb_pixels);
+        var col_hex_string=RGBToHex(rgb.r,rgb.g,rgb.b);
+        ctx.fillStyle = col_hex_string;
+        ctx.fillRect(col,row,scale,scale);
+        //console.log(col_hex_string);
+        
       }
     }
 
@@ -57,7 +64,7 @@ document.getElementById("input_img").onload = function() {
     console.log(rgb_pixels[500][500]);
     console.log(getAvrg(scale,500,500,rgb_pixels));
     console.log(rgb_pixels[0][0]);
-    console.log(rgb_pixels[height-1][width-1]);
+
 
     //ctx.fillStyle = "rgb(0,0,0)";
     //ctx.fillStyle = "#FF0000";
@@ -65,14 +72,13 @@ document.getElementById("input_img").onload = function() {
 
     //ctx.fillStyle="rgba(254,0,0,0.5)";
 
-    //ctx.fillRect(500, 500, scale, scale);
+    ctx.fillRect(100, 0, scale, scale);
 
     //ctx.putImageData(imgData, 0, 0);
 
 
   };
 
-  //Img_processing();
 
   function getAvrg(scale,x,y,rgb_pixels){
     var rgb = {r:0,g:0,b:0};
@@ -93,11 +99,22 @@ document.getElementById("input_img").onload = function() {
     return rgb;
   }
 
-  function setAvrg(scale,x,y,rgb,ctx){
-    //ctx.fillStyle="rgb("+rgb.r+","+rgb.g+","+rgb.b+")";
-    ctx.fillStyle="#FF0000";
-    ctx.fillRect(x,y,scale,scale);
+  function RGBToHex(r,g,b) {
+    r = r.toString(16);
+    g = g.toString(16);
+    b = b.toString(16);
+  
+    if (r.length == 1)
+      r = "0" + r;
+    if (g.length == 1)
+      g = "0" + g;
+    if (b.length == 1)
+      b = "0" + b;
+  
+    return "#" + r + g + b;
   }
+
+
 
 
 
