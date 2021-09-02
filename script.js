@@ -15,7 +15,7 @@ document.getElementById("input_img").onload = function() {
     //var scale=1;
     var width = c.width;
     var height =  c.length;
-    var imgData=ctx.getImageData(0, 0, width, height);
+    var imgData=ctx.getImageData(0, 0, c.width, c.height);
     
     var rgb_pixels = new  Array(height);
     
