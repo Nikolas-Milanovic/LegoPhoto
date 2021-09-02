@@ -34,29 +34,41 @@ document.getElementById("input_img").onload = function() {
     for(var x=0; x < height; x++){
         for(var y=0; y < width; y++){
             rgb.r = imgData.data[i];
-            rgb.b = imgData.data[i+1];
-            rgb.g = imgData.data[i+2];
+            rgb.g = imgData.data[i+1];
+            rgb.b = imgData.data[i+2];
             rgb_pixels[x][y]=rgb;
             i+=4;
         }
     }
     
     console.log("testing output");
-    console.log(rgb_pixels[0][0]);
-    console.log(rgb_pixels[0][0].r);
-    console.log(rgb_pixels[0][0].g);
-    console.log(rgb_pixels[0][0].b);
+    console.log(rgb_pixels[500][500]);
+    console.log(getAvrg(32,500,500,rgb_pixels));
+
     //ctx.putImageData(imgData, 0, 0);
 
 
-    // rgb.r = ~~(rgb.r/count);
-    // rgb.g = ~~(rgb.g/count);
-    // rgb.b = ~~(rgb.b/count);
   };
 
 
   function getAvrg(scale,x,y,rgb_pixels){
+    var rgb = {r:0,g:0,b:0};
+    
+    for(var i=0;i<scale;i++){
+      for(var j=0;j<scale;j++){
+        rgb.r+=rgb_pixels[x+i][y+j].r;
+        rgb.g+=rgb_pixels[x+i][y+j].g;
+        rgb.b+=rgb_pixels[x+i][y+j].b;
+        console.log(rgb);
+      }
+    }
 
+    var count=scale*scale;
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+
+    return rgb;
   }
 
 
