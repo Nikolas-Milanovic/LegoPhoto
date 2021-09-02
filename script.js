@@ -36,6 +36,7 @@ document.getElementById("input_img").onload = function() {
             rgb.r = imgData.data[i];
             rgb.g = imgData.data[i+1];
             rgb.b = imgData.data[i+2];
+            console.log(rgb);
             rgb_pixels[x][y]=rgb;
             i+=4;
         }
