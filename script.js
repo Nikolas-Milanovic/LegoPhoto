@@ -13,8 +13,8 @@ document.getElementById("input_img").onload = function() {
     
     var rgb = {r:0,g:0,b:0};
     //var scale=1;
-    var width = c.width;
-    var height =  c.length;
+    var height = canvas.height = img.naturalHeight || img.offsetHeight || img.height;
+    var width = canvas.width = img.naturalWidth || img.offsetWidth || img.width;
     var imgData=ctx.getImageData(0, 0, c.width, c.height);
     
     var rgb_pixels = new  Array(height);
@@ -53,6 +53,11 @@ document.getElementById("input_img").onload = function() {
     // rgb.g = ~~(rgb.g/count);
     // rgb.b = ~~(rgb.b/count);
   };
+
+
+  function getAvrg(scale,x,y,rgb_pixels){
+
+  }
 
 
 
