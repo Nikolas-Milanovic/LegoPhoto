@@ -13,19 +13,13 @@ document.getElementById("input_img").onload = function() {
     ctx.drawImage(img, 0, 0);
     var imgData=ctx.getImageData(0, 0, c.width, c.height);
 
-    var rgb = {r:0,g:0,b:0};
-    //var scale=1;
+    var scale=32;
     var height = img.naturalHeight || img.offsetHeight || img.height;
     var width = img.naturalWidth || img.offsetWidth || img.width;
     
-    var rgb_pixels = new  Array(height);
+    var rgb_pixels = new Array(height);
     
     //create 2D array [height][width]
-    //(0,0)............(0,width)
-    // .                 .
-    // .                 .
-    // .                 .
-    //(length,0).......(height,width)
     for(var i=0; i < rgb_pixels.length; i++){
         rgb_pixels[i] = new Array(width);
     }
@@ -39,25 +33,39 @@ document.getElementById("input_img").onload = function() {
             rgb.r = imgData.data[i];
             rgb.g = imgData.data[i+1];
             rgb.b = imgData.data[i+2];
-            //console.log(rgb);
             rgb_pixels[x][y]=rgb;
             i+=4;
         }
     }
+    height=scale*(~~(height/scale));
+    width=scale*(~~(width/scale));
+
+    //get the average color of the pixels and paint that color onto the canvas
+    for(var x=0; x < height; x+=scale){
+      for(var y=0; y < width; y+=scale){
+        var rgb=getAvrg(scale,x,y,rgb_pixels);
+        ctx.fillStyle="rgb("+rgb.r+","+rgb.g+","+rgb.b+")";
+        //ctx.fillStyle = "rgb(0,0,0)";
+        ctx.fillRect(x,y,scale,scale);
+        //setAvrg(scale,x,y,rgb_avrg,ctx);
+      }
+    }
+
+
     console.log("i value: "+i);
     console.log("testing output");
     console.log(rgb_pixels[500][500]);
-    console.log(getAvrg(32,500,500,rgb_pixels));
+    console.log(getAvrg(scale,500,500,rgb_pixels));
     console.log(rgb_pixels[0][0]);
     console.log(rgb_pixels[height-1][width-1]);
 
     //ctx.fillStyle = "rgb(0,0,0)";
     //ctx.fillStyle = "#FF0000";
-    //ctx.fillStyle = "green";
+    ctx.fillStyle = "green";
 
-    ctx.fillStyle="rgba(254,0,0,0.5)";
+    //ctx.fillStyle="rgba(254,0,0,0.5)";
 
-    ctx.fillRect(500, 500, 32, 32);
+    ctx.fillRect(500, 500, scale, scale);
 
     //ctx.putImageData(imgData, 0, 0);
 
@@ -83,6 +91,12 @@ document.getElementById("input_img").onload = function() {
     rgb.b = ~~(rgb.b/count);
 
     return rgb;
+  }
+
+  function setAvrg(scale,x,y,rgb,ctx){
+    //ctx.fillStyle="rgb("+rgb.r+","+rgb.g+","+rgb.b+")";
+    ctx.fillStyle="#FF0000";
+    ctx.fillRect(x,y,scale,scale);
   }
 
 
