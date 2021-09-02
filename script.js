@@ -1,7 +1,7 @@
 // Plan 
-// 1) get the color of the pixels 
-// 2) next, get the average color 
-// 3) thrid, get the Lego color thats closest to the avrg color
+// 1) get the color of the pixels DONE
+// 2) next, get the average color DONE
+// 3) thrid, get the Lego color thats closest to the avrg color 
 // 4) display the the lego 1 by 1 platte in the browser
 // 5) provide instructions
 
@@ -9,7 +9,7 @@ document.getElementById("input_img").onload = function() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     var img = document.getElementById("input_img");
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(img,0,0);
     var imgData=ctx.getImageData(0, 0, c.width, c.height);
 
     var scale=40;
@@ -39,6 +39,7 @@ document.getElementById("input_img").onload = function() {
 
     height=scale*(~~(height/scale));
     width=scale*(~~(width/scale));
+
     console.log(height+" "+width);
     console.log(rgb_pixels.length);
     console.log(rgb_pixels[rgb_pixels.length-1].length);
@@ -51,10 +52,18 @@ document.getElementById("input_img").onload = function() {
         //console.log("row:"+row+"col:"+col);
         var rgb=getAvrg(scale,row,col,rgb_pixels);
         var col_hex_string=RGBToHex(rgb.r,rgb.g,rgb.b);
-        ctx.fillStyle = col_hex_string;
-        ctx.fillRect(col,row,scale,scale);
-        //console.log(col_hex_string);
         
+       
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(col,row,scale,scale);
+
+        ctx.beginPath();
+        ctx.fillStyle = col_hex_string;
+        ctx.arc(col+(scale/2),row+(scale/2), scale/2, 0, 2 * Math.PI);
+        ctx.fill();
+        //ctx.stroke();
+
+
       }
     }
 
@@ -72,7 +81,7 @@ document.getElementById("input_img").onload = function() {
 
     //ctx.fillStyle="rgba(254,0,0,0.5)";
 
-    ctx.fillRect(100, 0, scale, scale);
+    //ctx.fillRect(100, 0, scale, scale);
 
     //ctx.putImageData(imgData, 0, 0);
 
