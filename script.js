@@ -15,9 +15,9 @@ document.getElementById("input_img").onload = function() {
     //var scale=1;
     var width = c.width;
     var height =  c.length;
-    var imgData=ctx.getImageData(0, 0, c.width, c.height);
+    var imgData=ctx.getImageData(0, 0, width, height);
     
-    var rgb_pixels = new  Array(length);
+    var rgb_pixels = new  Array(height);
     
     //create 2D array [length][width]
     //(0,0)............(0,width)
@@ -31,7 +31,7 @@ document.getElementById("input_img").onload = function() {
 
     //get rgb from imgData object and input it into a user friendly 2D array
     var i=0;
-    for(var x=0; x < length; x++){
+    for(var x=0; x < height; x++){
         for(var y=0; y < width; y++){
             rgb.r = imgData.data[i];
             rgb.b = imgData.data[i+1];
