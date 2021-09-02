@@ -59,7 +59,6 @@ document.getElementById("input_img").onload = function() {
         rgb.r+=rgb_pixels[x+i][y+j].r;
         rgb.g+=rgb_pixels[x+i][y+j].g;
         rgb.b+=rgb_pixels[x+i][y+j].b;
-        console.log(rgb);
       }
     }
 
