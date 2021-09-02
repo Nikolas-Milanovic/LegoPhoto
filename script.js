@@ -31,12 +31,12 @@ document.getElementById("input_img").onload = function() {
 
     //get rgb from imgData object and input it into a user friendly 2D array
     var i=0;
-    for(var x=0; x < width; x++){
+    for(var x=0; x < length; x++){
         for(var y=0; y < width; y++){
             rgb.r = imgData.data[i];
             rgb.b = imgData.data[i+1];
             rgb.g = imgData.data[i+2];
-            rgb_pixels [x][y]=rgb;
+            rgb_pixels[x][y]=rgb;
             i+=4;
         }
     }
