@@ -65,7 +65,7 @@ document.getElementById("input_img").onload = function() {
 
     //ctx.fillStyle="rgba(254,0,0,0.5)";
 
-    ctx.fillRect(500, 500, scale, scale);
+    //ctx.fillRect(500, 500, scale, scale);
 
     //ctx.putImageData(imgData, 0, 0);
 
