@@ -3,9 +3,14 @@
       My Lego Photo Project!
     </HEAD>
     <BODY>
-        <img id="input_img" src="ironman.jpeg" alt="iron man" width="825" length="968">
-        <canvas id="myCanvas" width="825" height="968" style="border:1px solid#d3d3d3;">
+
+        <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+    
+        <img id="input_img" alt="iron man">
+        <canvas id="myCanvas"  width="1000" height="1080" style="border:1px solid">
             Your browser does not support the HTML5 canvas tag.</canvas>
+
         <script src="script.js"></script>
     </BODY>
   </HTML>
+  <!-- width="825" height="968" -->
