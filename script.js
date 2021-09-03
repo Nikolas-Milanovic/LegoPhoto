@@ -53,10 +53,6 @@
       console.log("h"+height);
       console.log("w"+width);
 
-      //Paint the background of the canvas white
-      // ctx.fillStyle = "#FFFFFF";
-      // ctx.fillRect(0,0,height,width);
-      // ctx.fill();
       ctx.beginPath();
       ctx.fillStyle = "white";
       ctx.fillRect(0,0,width,height);
