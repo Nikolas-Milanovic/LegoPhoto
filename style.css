@@ -1,0 +1,17 @@
+title{
+    font-style: italic;
+    color: #373fff;
+}
+
+h1{
+    font-style: italic;
+    color: red;
+}
+
+img{
+    width: 100%;
+}
+
+canvas{
+    width: 100%;
+}
