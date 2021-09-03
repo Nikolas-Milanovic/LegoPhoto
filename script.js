@@ -7,17 +7,20 @@
 
 //document.getElementById("input_img").onload = function() {
   var loadFile = function(event) {
-    var c = document.getElementById("myCanvas");
     
     var img= document.getElementById("input_img");
 	  img.src = URL.createObjectURL(event.target.files[0]);
 
     img.onload = function() {
 
+      var c = document.createElement("canvas");
+
       var height = img.naturalHeight || img.offsetHeight || img.height;
       var width = img.naturalWidth || img.offsetWidth || img.width;
-      
-      
+
+      c.width=width;
+      c.height=height;
+
       var ctx = c.getContext("2d");
       ctx.drawImage(img,0,0);
       var imgData=ctx.getImageData(0, 0, width, height);
@@ -47,11 +50,20 @@
       //Height and Width must be rounded down appropiatelly to avoid out of bounds expection when calling the getAvrg() func
       height=scale*(~~(height/scale));
       width=scale*(~~(width/scale));
-      c.width=width;
-      c.height=height;
+      console.log("h"+c.height);
+      console.log("w"+c.width);
 
-      console.log("h"+height);
-      console.log("w"+width);
+      var str_height=""+height;
+      var str_width=""+width;
+
+      c.setAttribute("width",str_width);
+      c.setAttribute("height",height);
+      
+      //c.width=width;
+      //c.height=height;
+
+      console.log("h"+c.height);
+      console.log("w"+c.width);
 
       ctx.beginPath();
       ctx.fillStyle = "white";
@@ -74,6 +86,9 @@
 
         }
       }
+
+      //append canvas variable c to html 
+      document.body.appendChild(c);
     }
   };
   
