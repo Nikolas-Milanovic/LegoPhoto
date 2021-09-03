@@ -6,6 +6,9 @@
 // 5) provide instructions
 
 //document.getElementById("input_img").onload = function() {
+var c = document.createElement("canvas");
+
+
   var loadFile = function(event) {
     
     var img= document.getElementById("input_img");
@@ -13,19 +16,18 @@
 
     img.onload = function() {
 
-      var c = document.createElement("canvas");
-
       var height = img.naturalHeight || img.offsetHeight || img.height;
       var width = img.naturalWidth || img.offsetWidth || img.width;
 
       c.width=width;
       c.height=height;
+  
 
       var ctx = c.getContext("2d");
       ctx.drawImage(img,0,0);
       var imgData=ctx.getImageData(0, 0, width, height);
 
-      var scale=40; //Scale represents how many pixels from the inputed_img will represent 1by1 lego plate. 
+      var scale=40/2; //Scale represents how many pixels from the inputed_img will represent 1by1 lego plate. 
       //Example: scale = 10; Then scale*scale=10*10=100 pixels will be represented by the color of one 1by1 lego plate
 
       //create 2D array [height][width]
@@ -88,7 +90,7 @@
       }
 
       //append canvas variable c to html 
-      document.body.appendChild(c);
+      document.getElementById("output").appendChild(c);
     }
   };
   
