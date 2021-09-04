@@ -9,16 +9,10 @@
 var c = document.createElement("canvas");
 
   function display_lego_photo(){
-    console.log("button clicked");
-  //var loadFile = function(event) {
-
-    //console.log(file.type);
-    
-    //var img= document.getElementById("input_img");
-	  //img.src = URL.createObjectURL(event.target.files[0]);
-    var img= document.getElementById("dragged_img");
-    console.log(img);
-    //img.onload = function() {
+      
+      console.log("generate_button clicked");
+ 
+      var img= document.getElementById("dragged_img");
 
       var height = img.naturalHeight || img.offsetHeight || img.height;
       var width = img.naturalWidth || img.offsetWidth || img.width;
@@ -26,13 +20,15 @@ var c = document.createElement("canvas");
       c.width=width;
       c.height=height;
   
-
       var ctx = c.getContext("2d");
       ctx.drawImage(img,0,0);
       var imgData=ctx.getImageData(0, 0, width, height);
 
-      var scale=40/2; //Scale represents how many pixels from the inputed_img will represent 1by1 lego plate. 
+      var scale_input=""+document.getElementById("scale").value; //Scale represents how many pixels from the inputed_img will represent 1by1 lego plate. 
       //Example: scale = 10; Then scale*scale=10*10=100 pixels will be represented by the color of one 1by1 lego plate
+      var scale=parseInt(scale_input);
+      console.log("scale"+ scale);
+
 
       //create 2D array [height][width]
       var rgb_pixels = new Array(height);
@@ -53,6 +49,7 @@ var c = document.createElement("canvas");
           }
       }
       
+      //console.log(rgb_pixels[500][500]);
       //Height and Width must be rounded down appropiatelly to avoid out of bounds expection when calling the getAvrg() func
       height=scale*(~~(height/scale));
       width=scale*(~~(width/scale));
@@ -79,6 +76,7 @@ var c = document.createElement("canvas");
       for(var row=0; row < height; row+=scale){
         for(var col=0; col < width; col+=scale){
 
+          //var rgb=getAvrg(scale,row,col,rgb_pixels);
           var rgb=getAvrg(scale,row,col,rgb_pixels);
           var col_hex_string=RGBToHex(rgb.r,rgb.g,rgb.b);
           

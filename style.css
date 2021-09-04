@@ -7,6 +7,7 @@ header{
 #title{
     width: 50%;
     padding:20px;
+    padding-top:35px;
 }
 
 h1{
@@ -22,31 +23,60 @@ canvas{
     width: 100%;
 }
 
-#black_line{
-  color: black;
-  height:5px;
-  width:100%;
-}
-
-.generate_button{
+.generate{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
   }
 
-  .generate_button button{
+  .generate button{
     padding: 10px 25px;
     font-size: 20px;
     font-weight: 500;
-    border: none;
+    border: 3px solid rgb(255,129,49);;
     outline: none;
     background: rgb(255,129,49);
     color: black;
     border-radius: 5px;
     cursor: pointer;
-    margin:auto;
-}
+    margin:10px;
+  }
+
+  .generate button:hover{
+    background:white;
+  }
+
+  .generate label{
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: 3px solid rgb(255,129,49);
+    outline: none;
+    background: rgb(255,129,49);
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:10px;
+  }
+
+  .generate input{
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: 3px solid rgb(255,129,49);
+    outline: none;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    margin-right:100px;
+  }
+
+
+
+
 
 
 *{
@@ -58,7 +88,6 @@ canvas{
 
 body{
     background: white;
-    /*#e0a500;*/
 }
 
 .box{
@@ -104,13 +133,23 @@ body{
   padding: 10px 25px;
   font-size: 20px;
   font-weight: 500;
-  border: none;
+  border: 3px solid rgb(255,129,49);;
   outline: none;
   background: rgb(255,129,49);
   color: black;
   border-radius: 5px;
   cursor: pointer;
 }
+
+.drag-area button:hover{
+  background:white;
+}
+
+#download-icon{
+  width:20%;
+  height:25%;
+}
+
 .drag-area img{
   height: 100%;
   width: 100%;
@@ -132,7 +171,7 @@ body{
 footer {
   text-align: left;
   padding: 20px;
-  font: size 15px;px;
+  font: size 15px;
   background-color: rgb(32,28,71);
   color: white;
   box-shadow: 0 50vh 0 50vh rgb(32,28,71);
