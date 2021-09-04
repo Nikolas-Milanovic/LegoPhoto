@@ -8,13 +8,17 @@
 //document.getElementById("input_img").onload = function() {
 var c = document.createElement("canvas");
 
+  function display_lego_photo(){
+    console.log("button clicked");
+  //var loadFile = function(event) {
 
-  var loadFile = function(event) {
+    //console.log(file.type);
     
-    var img= document.getElementById("input_img");
-	  img.src = URL.createObjectURL(event.target.files[0]);
-
-    img.onload = function() {
+    //var img= document.getElementById("input_img");
+	  //img.src = URL.createObjectURL(event.target.files[0]);
+    var img= document.getElementById("dragged_img");
+    console.log(img);
+    //img.onload = function() {
 
       var height = img.naturalHeight || img.offsetHeight || img.height;
       var width = img.naturalWidth || img.offsetWidth || img.width;
@@ -91,7 +95,7 @@ var c = document.createElement("canvas");
 
       //append canvas variable c to html 
       document.getElementById("output").appendChild(c);
-    }
+    //}
   };
   
 

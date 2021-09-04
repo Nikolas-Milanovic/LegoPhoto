@@ -5,20 +5,42 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="style.css">
-      <script src="script.js"></script>
+      <!-- <script src="script.js"></script> -->
     </HEAD>
     <BODY>
       <h1>My Lego Photo Project</h1>
-        <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
-        
+
+      <!--Drag and Drop html-->
+      <div class="box">
+        <div class="drag-area">
+          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <header>Drag & Drop to Upload File</header>
+          <span>OR</span>
+          <button>Browse File</button>
+          <input type="file" hidden>
+        </div>
+      </div>
+
+      <!--
+      <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+      
         <div id="oringal">
           <img id="input_img" alt="original photo">
         </div>
-        <!-- <canvas id="myCanvas" style="border:1px solid">
+      
+        <canvas id="myCanvas" style="border:1px solid">
             Your browser does not support the HTML5 canvas tag.</canvas> -->
-        
+        <button onclick="display_lego_photo();">GENERATE</button>
+
         <div id="output"></div>
+        
+        <script src="script.js"></script>
+        <script src="dragNdrop.js"></script>
 
     </BODY>
   </HTML>
   <!-- width="825" height="968"     width="1000" height="1080"-->
+
+
+
+  
