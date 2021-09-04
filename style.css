@@ -1,11 +1,13 @@
-title{
-    font-style: italic;
-    color: #373fff;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+#title{
+    width: 50%;
+    padding-left:20px;
+    padding-top:20px;
 }
 
 h1{
     font-style: italic;
-    color: red;
+    color:  #ffffff;
 }
 
 img{
@@ -17,12 +19,42 @@ canvas{
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.generate_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+
+    /*
+    border: 2px dashed rgb(255, 255, 255);
+    border-radius: 5px;
+    */
+  }
+
+  .generate_button button{
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #5256ad;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:auto;
+}
+
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: #e0a500;
 }
 /*
 body{
@@ -37,9 +69,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background: #5256ad;
+    /*min-height: 100vh;*/
+    background: #e0a500;
+    /*#5256ad;*/
+    padding-top: 50px;
   }
+
+
   
 .drag-area{
   border: 2px dashed rgb(255, 255, 255);
@@ -87,8 +123,19 @@ body{
   border-radius: 5px;
 }
 
-
-
+.output{
+    width: 90%;
+    height:50%;
+    /*
+    border: 2px dashed rgb(255, 255, 255);
+    border-radius: 5px;
+    */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
 
 
 

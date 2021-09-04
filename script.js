@@ -140,9 +140,3 @@ var c = document.createElement("canvas");
 
 
 
-
-
-  // console.log(height+" "+width);
-  // console.log(rgb_pixels.length);
-  // console.log(rgb_pixels[rgb_pixels.length-1].length);
-  // console.log(rgb_pixels[height-1][width-1]);

@@ -8,7 +8,7 @@
       <!-- <script src="script.js"></script> -->
     </HEAD>
     <BODY>
-      <h1>My Lego Photo Project</h1>
+      <img id="title" src="https://fontmeme.com/permalink/210904/e3fd8f697a6208f60b4ced0fe97ccbdf.png" alt="lego-font" border="0">
 
       <!--Drag and Drop html-->
       <div class="box">
@@ -20,27 +20,23 @@
           <input type="file" hidden>
         </div>
       </div>
-
-      <!--
-      <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
       
-        <div id="oringal">
-          <img id="input_img" alt="original photo">
+        <div class="generate_button">
+          <button onclick="display_lego_photo();">GENERATE</button>
+        </div>    
+
+
+      <div class="box">
+        <div class="output" id="output">
         </div>
-      
-        <canvas id="myCanvas" style="border:1px solid">
-            Your browser does not support the HTML5 canvas tag.</canvas> -->
-        <button onclick="display_lego_photo();">GENERATE</button>
-
-        <div id="output"></div>
+      </div>
         
         <script src="script.js"></script>
         <script src="dragNdrop.js"></script>
 
     </BODY>
   </HTML>
-  <!-- width="825" height="968"     width="1000" height="1080"-->
 
 
 
-  
+
