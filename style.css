@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+header{
+  background-color: rgb(255,208,50);
+}
+
 #title{
     width: 50%;
-    padding-left:20px;
-    padding-top:20px;
+    padding:20px;
 }
 
 h1{
@@ -18,18 +22,17 @@ canvas{
     width: 100%;
 }
 
-
+#black_line{
+  color: black;
+  height:5px;
+  width:100%;
+}
 
 .generate_button{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
-
-    /*
-    border: 2px dashed rgb(255, 255, 255);
-    border-radius: 5px;
-    */
   }
 
   .generate_button button{
@@ -38,8 +41,8 @@ canvas{
     font-weight: 500;
     border: none;
     outline: none;
-    background: #fff;
-    color: #5256ad;
+    background: rgb(255,129,49);
+    color: black;
     border-radius: 5px;
     cursor: pointer;
     margin:auto;
@@ -54,31 +57,22 @@ canvas{
 }
 
 body{
-    background: #e0a500;
+    background: white;
+    /*#e0a500;*/
 }
-/*
-body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #5256ad;
-}*/
 
 .box{
     display: flex;
     align-items: center;
     justify-content: center;
     /*min-height: 100vh;*/
-    background: #e0a500;
+    background:white;
     /*#5256ad;*/
     padding-top: 50px;
   }
-
-
   
 .drag-area{
-  border: 2px dashed rgb(255, 255, 255);
+  border: 5px dashed rgb(255,129,49);
   height: 500px;
   width: 700px;
   border-radius: 5px;
@@ -88,21 +82,22 @@ body{
   flex-direction: column;
 }
 .drag-area.active{
-  border: 2px solid #fff;
+  border: 3px solid rgb(255,129,49);;
 }
 .drag-area .icon{
   font-size: 100px;
-  color: #fff;
+  color: rgb(255,129,49);
 }
 .drag-area header{
   font-size: 30px;
   font-weight: 500;
-  color: #fff;
+  background-color:white;
+  color: black;
 }
 .drag-area span{
   font-size: 25px;
   font-weight: 500;
-  color: #fff;
+  color: black;
   margin: 10px 0 15px 0;
 }
 .drag-area button{
@@ -111,8 +106,8 @@ body{
   font-weight: 500;
   border: none;
   outline: none;
-  background: #fff;
-  color: #5256ad;
+  background: rgb(255,129,49);
+  color: black;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -124,17 +119,26 @@ body{
 }
 
 .output{
-    width: 90%;
+    width: 100%;
     height:50%;
-    /*
-    border: 2px dashed rgb(255, 255, 255);
-    border-radius: 5px;
-    */
     display: flex;
+    padding: 50px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
+}
+
+/* FOOTER */
+footer {
+  text-align: left;
+  padding: 20px;
+  font: size 15px;px;
+  background-color: rgb(32,28,71);
+  color: white;
+  box-shadow: 0 50vh 0 50vh rgb(32,28,71);
+}
+a{
+  color:white;
 }
 
 
