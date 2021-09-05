@@ -31,7 +31,15 @@ canvas{
     z-index: -1;
     height: 100vh;
 }
+p{
+  max-width: 50%;
+  display:inline;
+}
 
+#email{
+  max-width: 50%;
+  display:inline;
+}
 
 .generate{
     z-index: 1;
@@ -367,6 +375,8 @@ a{
 
 #share_page{
   position: absolute;
+  display:inline;
+  max-width:30%;
   right: 0px;
   padding-bottom: 20px;
   padding-right: 20px;
