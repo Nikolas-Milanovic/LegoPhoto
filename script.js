@@ -163,71 +163,71 @@ var c = document.createElement("canvas");
   White
 */
 const legocolors = [
-  {
+  {//0
     "rgb": {r:19,g:19,b:19},
     "color": "Black",
   },
-  {
+  {//1
     "rgb": {r:221,g:196,b:142},
     "color": "Brick Yellow",
   },
-  {
+  {//2
     "rgb": {r:0,g:108,b:183},
     "color": "Bright Blue",
   },
-  {
+  {//3
     "rgb": {r:150,g:199,b:83},
     "color": "Bright Green",
   },
-  {
+  {//4
     "rgb": {r:245,g:136,b:48},
     "color": "Bright Orange",
   },
-  {
+  {//5
     "rgb": {r:221,g:26,b:33},
     "color": "Bright Red",  /*6*/
   },
-  {
+  {//6
     "rgb": {r:225,g:205,b:3},
     "color": "Bright Yellow",
   },
-  {
+  {//7
     "rgb": {r:154,g:202,b:60},
     "color": "Bright Yellowish Green",
   },
-  {
+  {//8
     "rgb": {r:0,g:146,b:71},
     "color": "Dark Green",
   },
-  {
+  {//9
     "rgb": {r:100,g:103,b:101},
     "color": "Dark Stone Grey",
   },
-  {
+  {//10
     "rgb": {r:246,g:173,b:205},
     "color": "Light Purple",
   },
-  {
+  {//11
     "rgb": {r:76,g:47,b:146},
     "color": "Medium Lilac",
   },
-  {
+  {//12
     "rgb": {r:175,g:116,b:70},
     "color": "Medium Nougat",
   },
-  {
+  {//13
     "rgb": {r:160,g:161,b:159},
     "color": "Medium Stone Grey",
   },
-  {
+  {//14
     "rgb": {r:105,g:46,b:20},
     "color": "Reddish Brown",
   },
-  {
+  {//15
     "rgb": {r:135,g:141,b:143},
     "color": "Silver Metallic",
   },
-  {
+  {//16
     "rgb": {r:244,g:244,b:244},
     "color": "White",
   },

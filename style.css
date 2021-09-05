@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 header{
   background-color: rgb(255,208,50);
 }
@@ -26,21 +33,25 @@ canvas{
 
 .generate{
     z-index: 1;
+    flex-direction: row;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
+    justify-content: center; /*horizontal*/
+    align-items: flex-start; /*vertical*/
     /*
     border: 3px solid rgb(255,129,49);
     */
+    margin-top:50px;
+    padding-top:20px;
     height:300px;
+    padding-bottom:20px;
+    margin-bottom:50px;
   }
 
   .generate button{
     padding: 10px 25px;
     font-size: 20px;
     font-weight: 500;
-    border: 3px solid rgb(255,129,49);;
+    border: 3px solid rgb(255,129,49);
     outline: none;
     background: rgb(255,129,49);
     color: black;
@@ -50,11 +61,13 @@ canvas{
   }
 
   .generate button:hover{
-    background:white;
+    background: white;
   }
+
 
   .generate label{
     padding: 10px 25px;
+    padding-top:10px;
     font-size: 20px;
     font-weight: 500;
     border: 3px solid rgb(255,129,49);
@@ -80,12 +93,10 @@ canvas{
     margin-right:100px;
   }
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+
+
+
+
 
 body{
     background: white;
@@ -143,7 +154,7 @@ body{
 }
 
 .drag-area button:hover{
-  background:white;
+  background:white ;
 }
 
 #download-icon{
@@ -185,30 +196,43 @@ a{
 }
 
 
-/*Code for DROP down menu*/
+/*DROPDOWN MENU*/
 
 .multiselect {
+  position: relative;
   width: 400px;
+  margin-top: 10px;
+  margin-left: 0px;
 }
 
 .selectBox {
   position: relative;
 
-  padding: 16px 25px;
+  padding: 10px 25px;
   font-size: 20px;
   font-weight: 500;
   outline: none;
+  margin-left:0px;
   background: rgb(255,129,49);
+  border: 3px solid rgb(255,129,49);
   color: black;
   border-radius: 5px;
   cursor: pointer;
 }
-  
+
 .selectBox select {
   width: 100%;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 500;
   border:none;
   background-color: rgb(255,129,49);
+}
+.selectBox:hover #select_dropdown{
+  background-color: white;
+}
+
+.selectBox:hover{
+  background-color: white;
 }
 
 .overSelect {
@@ -232,18 +256,106 @@ a{
   display: block;
 }
 
+/*
 #checkboxes label:hover {
   background-color: white;
 }
+*/
+
 
 /* Custome color to each dropdown */
-
-#0{
-  background-color: blue;
-  color: blue;
+#_0{
+  background-color: rgba(19, 19, 19, 0.7);
+  color: black;
+}
+#_1{
+  background-color: rgba(221,196,142,1);
+  color: black;
+}
+#_2{
+  background-color: rgba(0,108,183,1);
+  color: black;
+}
+#_3{
+  background-color: rgba(150,199,83,1);
+  color: black;
+}
+#_4{
+  background-color: rgba(245,136,48,1);
+  color: black;
+}
+#_5{
+  background-color: rgba(221,26,33,1);
+  color: black;
+}
+#_6{
+  background-color: rgba(225,205,3,1);
+  color: black;
+}
+#_7{
+  background-color: rgba(154,202,60,1);
+  color: black;
+}
+#_8{
+  background-color: rgba(0,146,71,1);
+  color: black;
+}
+#_9{
+  background-color: rgba(100,103,101,1);
+  color: black;
+}
+#_10{
+  background-color: rgba(246,173,205,1);
+  color: black;
+}
+#_11{
+  background-color: rgba(76,47,146,1);
+  color: black;
+}
+#_12{
+  background-color: rgba(175,116,70,1);
+  color: black;
+}
+#_13{
+  background-color: rgba(160,161,159,1);
+  color: black;
+}
+#_14{
+  background-color: rgba(105,46,20,1);
+  color: black;
+}
+#_15{
+  background-color: rgba(135,141,143,1);
+  color: black;
+}
+#_16{
+  background-color: rgba(244,244,244,1);
+  color: black;
 }
 
 
+/*FOR MOBILE DISPLAY*/
+@media screen and (max-width: 950px) {
+  .generate{
+    
+    display: table;
+    flex-direction: row;
+    justify-content: center; /*horizontal*/
+    align-items: center; /*vertical*/
+    margin: auto;
+
+  }
+
+  .multiselect {
+    width: 90%;
+    margin: auto;
+  }
+
+  #checkboxes {
+    height: 400px;
+    overflow-y: scroll;
+  }
+}
 
 
 
