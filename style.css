@@ -29,7 +29,9 @@ img{
 canvas{
     width: 100%;
     z-index: -1;
+    height: 100vh;
 }
+
 
 .generate{
     z-index: 1;
@@ -172,7 +174,6 @@ body{
 .output{
     width: 100%;
     height: auto;
-    min-height: 100vh;
     display: flex;
     padding: 50px;
     align-items: center;
@@ -184,7 +185,7 @@ body{
 
 /* FOOTER */
 footer {
-  text-align: left;
+  display: flex;
   padding: 20px;
   font: size 15px;
   background-color: rgb(32,28,71);
@@ -355,7 +356,19 @@ a{
     height: 400px;
     overflow-y: scroll;
   }
+
+  #title{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
 }
 
-
+#share_page{
+  position: absolute;
+  right: 0px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
 
