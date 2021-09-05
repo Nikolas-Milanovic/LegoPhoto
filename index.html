@@ -26,7 +26,63 @@
       </div>
       
       <!--customizable input-->
+      
       <div class="generate">
+        <form>
+          <div class="multiselect">
+            <div class="selectBox" onclick="showCheckboxes()">
+              <select>
+                <option>You can deselect lego colors</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes">
+              <label for="0">
+                <input type="checkbox" id="0" checked />Black</label>
+              <label for="1">
+                <input type="checkbox" id="1" checked />Brick Yellow</label>
+              <label for="2">
+                <input type="checkbox" id="2" checked />Bright Blue</label>
+              <label for="3">
+                <input type="checkbox" id="3" checked />Bright Green</label>
+              <label for="4">
+                <input type="checkbox" id="4" checked />Bright Orange</label>  
+              <label for="5">
+                <input type="checkbox" id="5" checked />Bright Red</label>
+              <label for="6">
+                <input type="checkbox" id="6" checked />Bright Yellow</label>  
+              <label for="7">
+                <input type="checkbox" id="7" checked />Bright Yellowish Green</label>
+              <label for="8">
+                <input type="checkbox" id="8" checked />Dark Green</label>
+              <label for="9">
+                <input type="checkbox" id="9" checked />Dark Stone Grey</label>  
+              <label for="10">
+                <input type="checkbox" id="10" checked />Light Purple</label>
+              <label for="11">
+                <input type="checkbox" id="11" checked />Medium Lilac</label>  
+              <label for="12">
+                <input type="checkbox" id="12" checked />Medium Nougat</label>
+              <label for="13">
+                <input type="checkbox" id="13" checked />Medium Stone Grey</label>
+              <label for="14">
+                <input type="checkbox" id="14" checked />Reddish Brown</label>  
+              <label for="15">
+                <input type="checkbox" id="15" checked />Silver Metallic</label>
+              <label for="16">
+                <input type="checkbox" id="16" checked />White</label>  
+            </div>
+          </div>
+        </form>
+        <!--
+  Lego exact colors:
+  
+  
+  
+  
+  
+  -->
+        
         <label for="scale">scale:</label>
         <input type="text" id="scale" name="scale" size="4" maxlength="4" value="20"><br><br> 
         <button onclick="display_lego_photo();">GENERATE</button>
@@ -49,6 +105,6 @@
     </BODY>
   </HTML>
 
-
+  
 
 

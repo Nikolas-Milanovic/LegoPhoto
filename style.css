@@ -21,13 +21,19 @@ img{
 
 canvas{
     width: 100%;
+    z-index: -1;
 }
 
 .generate{
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
+    /*
+    border: 3px solid rgb(255,129,49);
+    */
+    height:300px;
   }
 
   .generate button{
@@ -72,7 +78,6 @@ canvas{
     cursor: pointer;
     margin: 10px;
     margin-right:100px;
-
   }
 
 *{
@@ -180,7 +185,63 @@ a{
 }
 
 
+/*Code for DROP down menu*/
 
+.multiselect {
+  width: 400px;
+}
+
+.selectBox {
+  position: relative;
+
+  padding: 16px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  outline: none;
+  background: rgb(255,129,49);
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+  border:none;
+  background-color: rgb(255,129,49);
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: none;
+  height:0px;
+  border:2px solid #ccc; 
+  height: 100%;
+  overflow-y: scroll;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: white;
+}
+
+/* Custome color to each dropdown */
+
+#0{
+  background-color: blue;
+  color: blue;
+}
 
 
 
