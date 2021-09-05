@@ -5,7 +5,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="style.css">
-      <!-- <script src="script.js"></script> -->
     </HEAD>
     <BODY>
       <header>
@@ -15,7 +14,7 @@
       <hr style="width:100%", size="10px", color=black>  
 
       <!--Drag and Drop html-->
-      <div class="box">
+      <div class="container">
         <div class="drag-area">
           <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
           <header>Drag & Drop to Upload File</header>
@@ -26,6 +25,7 @@
         </div>
       </div>
       
+      <!--customizable input-->
       <div class="generate">
         <label for="scale">scale:</label>
         <input type="text" id="scale" name="scale" size="4" maxlength="4" value="20"><br><br> 
@@ -33,12 +33,11 @@
       </div>
 
 
-      <div class="box">
-        <div class="output" id="output">
-        </div>
+      <!--canvas is appended to div output tag -->
+      <div class="output" id="output">
       </div>
-       
       
+      <!--footer-->
       <footer>
         <p>Creator: Nikolas Milanovic<br>
         <a href="mailto:nikolas.milanovic@uwaterloo.ca">nikolas.milanovic@uwaterloo.ca</a></p>

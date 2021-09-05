@@ -72,12 +72,8 @@ canvas{
     cursor: pointer;
     margin: 10px;
     margin-right:100px;
+
   }
-
-
-
-
-
 
 *{
   margin: 0;
@@ -90,14 +86,14 @@ body{
     background: white;
 }
 
-.box{
+.container{
     display: flex;
     align-items: center;
     justify-content: center;
-    /*min-height: 100vh;*/
+    min-height: 100vh;
     background:white;
-    /*#5256ad;*/
     padding-top: 50px;
+
   }
   
 .drag-area{
@@ -159,13 +155,16 @@ body{
 
 .output{
     width: 100%;
-    height:50%;
+    height: auto;
+    min-height: 100vh;
     display: flex;
     padding: 50px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
+
 
 /* FOOTER */
 footer {
