@@ -180,6 +180,7 @@ const legocolors = [
   {//0
     "rgb": {r:19,g:19,b:19},
     "color": "Black",
+    "num":"",
   },
   {//1
     "rgb": {r:221,g:196,b:142},
@@ -347,8 +348,9 @@ function print_quadrant(row,col,length){
     len_col=rgb_avrg[0].length-1;
   }
 
-  var height=(~~(rgb_avrg.length/3)+1)*global_scale;
-  var width= (~~(rgb_avrg[0].length/3)+1)*global_scale;
+  
+  var height=(~~(rgb_avrg.length/3)+1)*global_scale*2;
+  var width= (~~(rgb_avrg[0].length/3)+1)*global_scale*2;
   c_intructions.setAttribute("width",width);
   c_intructions.setAttribute("height",height);
   console.log("h:"+c_intructions.height);
@@ -368,11 +370,22 @@ function print_quadrant(row,col,length){
       var col_hex_string=RGBToHex(rgb.r,rgb.g,rgb.b);
 
       ctx.beginPath();
-      //console.log(global_scale);
-      //console.log(col+(global_scale/2),row+(global_scale/2),global_scale/2);
-      ctx.fillStyle = col_hex_string;
-      ctx.arc((col_count*global_scale)+(global_scale/2),(row_count*global_scale)+(global_scale/2), global_scale/2, 0, 2 * Math.PI);
-      ctx.fill();
+      
+      var stroke_width=global_scale/4;
+      ctx.strokeStyle = col_hex_string;
+      ctx.arc((col_count*global_scale*2)+(global_scale),(row_count*global_scale*2)+(global_scale), global_scale-(stroke_width/2) , 0, 2 * Math.PI);
+      //ctx.arc((col_count*global_scale)+(global_scale/2),(row_count*global_scale)+(global_scale/2), global_scale/2, 0, 2 * Math.PI);
+      ctx.lineWidth=stroke_width;
+      ctx.stroke();
+
+      //Draw respective number
+      ctx.font = global_scale+"px Arial";
+      ctx.textAlign = 'center';
+      ctx.textBaseline= 'middle';
+      ctx.fillText("10",(col_count*global_scale*2)+(global_scale), ((row_count*global_scale*2)+(global_scale)));
+      ctx
+
+
       col_count++;
     }
     row_count++;
