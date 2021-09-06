@@ -31,6 +31,7 @@ canvas{
     z-index: -1;
     height: 100vh;
 }
+
 p{
   max-width: 50%;
   display:inline;
@@ -387,4 +388,57 @@ a{
   padding-bottom: 20px;
   padding-right: 20px;
 }
+
+/* INSTRUCTIONS*/
+.grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 50px;
+}
+
+.cell {
+  padding: 10px;
+  background-color: rgb(0,108,180);
+  border: 3px solid rgb(0,108,180);
+  color: white;
+}
+
+.cell:hover{
+  background-color: white;
+  color:black;
+}
+
+.colors-required{
+  margin:10px;
+  margin-left:40px;
+  width:auto;
+  overflow-y: scroll;
+  height:400px;
+  border: 1px solid rgb(0,108,180);
+}
+
+.colors-required li{
+  height:25px;
+  border: 1px solid rgb(0,108,180);
+}
+
+.output_instructions{
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgb(0,108,180);
+  
+}
+.output_instructions canvas{
+  height: auto;
+  width: auto;
+  border: 1px solid rgb(0,108,180);
+}
+
+
 
