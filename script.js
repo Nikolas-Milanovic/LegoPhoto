@@ -10,7 +10,7 @@ var c = document.createElement("canvas");
 
 
   function display_lego_photo(){
-      
+      print=true;
       console.log("generate_button clicked");
       try {
         var img= document.getElementById("dragged_img");
@@ -50,6 +50,9 @@ var c = document.createElement("canvas");
               rgb.g = imgData.data[i+1];
               rgb.b = imgData.data[i+2];
               rgb_pixels[x][y]=rgb;
+              // if(x==0 && y==0){
+              //   console.log("orignal",rgb);
+              // }
               i+=4;
           }
       }
@@ -240,7 +243,6 @@ function getColorsSelected(){
   var selected=[];
   for(var i=0;i<len;i++){
     var id=""+i;
-    console.log("id"+id);
     if(document.getElementById(id).checked){
       selected.push(i);
     }
@@ -252,21 +254,34 @@ function getColorsSelected(){
 //closest_lego_color(input ,rgb_pixels) compares the rgb paramter input to the
 // array of legocolors, and returns the closest color
 //O(n)
+var print=true; //for testing;
+var r_weight=0.3; //0.3
+var g_weight=0.3; //0.59
+var b_weight=0.3; //0.11
 function closest_lego_color(input ,rgb_pixels, selected_colors){
-  var closest_color=legocolors[0];
-  var closest_distance=3*Math.pow(255,2);//max distance
+  var index=selected_colors[0];
+  var closest_color=legocolors[index];
+
+  var closest_distance=Math.pow(r_weight * (input.r-legocolors[index].rgb.r),2)
+  + Math.pow(g_weight * (input.g-legocolors[index].rgb.g),2)
+  + Math.pow(b_weight * (input.b-legocolors[index].rgb.b),2);
 
   var len=selected_colors.length;
   for(var i=0;i<len;i++){
-    var index=selected_colors[i];
-    var d=Math.pow(input.r-legocolors[index].rgb.r,2)
-    +Math.pow(input.g-legocolors[index].rgb.g,2)
-    +Math.pow(input.b-legocolors[index].rgb.b,2);
+    index=selected_colors[i];
+    var d= Math.pow(r_weight * (input.r-legocolors[index].rgb.r),2)
+    + Math.pow(g_weight * (input.g-legocolors[index].rgb.g),2)
+    + Math.pow(b_weight * (input.b-legocolors[index].rgb.b),2);
+    if(print){
+      console.log(d);
+    }
+    
     if(d<closest_distance){
       closest_distance=d;
-      closest_color=legocolors[i];
+      closest_color=legocolors[index];
     }
   }
+  print=false;
   return closest_color;
 }
 
