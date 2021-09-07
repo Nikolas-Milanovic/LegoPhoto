@@ -12,7 +12,7 @@ let c_intructions = document.createElement("canvas");
 
   function display_lego_photo(){
       print=true;
-      console.log("generate_button clicked");
+      //console.log("generate_button clicked");
       try {
         var img= document.getElementById("dragged_img");
         var height = img.naturalHeight || img.offsetHeight || img.height;
@@ -156,6 +156,90 @@ let c_intructions = document.createElement("canvas");
     return "#" + r + g + b;
   }
 
+
+
+//Code Referenced from freecodecamp.
+//Class HashTable creates a hashtable using chaining to avoid collisions
+//We will use the hastable to quickly (avrg O(1))look up the lego.colors using their color name
+// as the hash (the key) and the index in the array lego.colors as the respective value 
+//Using mode 61 as the has function and since we only have a finite number of lego colors. Using 61 gives
+// a search runtime of O(1). This can be confirmed with the display memeber function
+class HashTable {
+  constructor() {
+    this.table = new Array(61);
+    this.size = 0;
+  }
+
+  _hash(key) {
+    return key % this.table.length;
+  }
+
+  set(key, value) {
+    const index = this._hash(key);
+    if (this.table[index]) {
+      for (let i = 0; i < this.table[index].length; i++) {
+        if (this.table[index][i][0] === key) {
+          this.table[index][i][1] = value;
+          return;
+        }
+      }
+      this.table[index].push([key, value]);
+    } else {
+      this.table[index] = [];
+      this.table[index].push([key, value]);
+    }
+    this.size++;
+  }
+
+  get(key) {
+    const index = this._hash(key);
+    console.log("index:",index);
+    if (this.table[index]) {
+      for (let i = 0; i < this.table.length; i++) {
+        console.log(this.table);
+        console.log(this.table[index]);
+        console.log(this.table[index][i]);
+        console.log(this.table[index][i][0]);
+        console.log(key,this.table[index][i][0]);
+        if (this.table[index][i][0] === key) {
+          return this.table[index][i][1];
+        }
+      }
+    }
+    return undefined;
+  }
+  display() {
+    this.table.forEach((values, index) => {
+      const chainedValues = values.map(
+        ([key, value]) => `[ ${key}: ${value} ]`
+      );
+      console.log(`${index}: ${chainedValues}`);
+    });
+  }
+}
+
+const ht = new HashTable();
+ht.set(191919,0);
+ht.set(221196142,1);
+ht.set(0108183,2);
+ht.set(15019983,3);
+ht.set(24513648,4);
+ht.set(2212633,5);
+ht.set(2252053,6);
+ht.set(15420260,7);
+ht.set(014671,8);
+ht.set(100103101,9);
+ht.set(246173205,10);
+ht.set(7647146,11);
+ht.set(17511670,12);
+ht.set(160161159,13);
+ht.set(1054620,14);
+ht.set(135141143,15);
+ht.set(244244244,16);
+
+//ht.display();
+
+
   /*
   Lego exact colors:
   Black
@@ -176,82 +260,177 @@ let c_intructions = document.createElement("canvas");
   Silver Metallic
   White
 */
-const legocolors = [
-  {//0
-    "rgb": {r:19,g:19,b:19},
-    "color": "Black",
-    "num":"",
-  },
-  {//1
-    "rgb": {r:221,g:196,b:142},
-    "color": "Brick Yellow",
-  },
-  {//2
-    "rgb": {r:0,g:108,b:183},
-    "color": "Bright Blue",
-  },
-  {//3
-    "rgb": {r:150,g:199,b:83},
-    "color": "Bright Green",
-  },
-  {//4
-    "rgb": {r:245,g:136,b:48},
-    "color": "Bright Orange",
-  },
-  {//5
-    "rgb": {r:221,g:26,b:33},
-    "color": "Bright Red", 
-  },
-  {//6
-    "rgb": {r:225,g:205,b:3},
-    "color": "Bright Yellow",
-  },
-  {//7
-    "rgb": {r:154,g:202,b:60},
-    "color": "Bright Yellowish Green",
-  },
-  {//8
-    "rgb": {r:0,g:146,b:71},
-    "color": "Dark Green",
-  },
-  {//9
-    "rgb": {r:100,g:103,b:101},
-    "color": "Dark Stone Grey",
-  },
-  {//10
-    "rgb": {r:246,g:173,b:205},
-    "color": "Light Purple",
-  },
-  {//11
-    "rgb": {r:76,g:47,b:146},
-    "color": "Medium Lilac",
-  },
-  {//12
-    "rgb": {r:175,g:116,b:70},
-    "color": "Medium Nougat",
-  },
-  {//13
-    "rgb": {r:160,g:161,b:159},
-    "color": "Medium Stone Grey",
-  },
-  {//14
-    "rgb": {r:105,g:46,b:20},
-    "color": "Reddish Brown",
-  },
-  {//15
-    "rgb": {r:135,g:141,b:143},
-    "color": "Silver Metallic",
-  },
-  {//16
-    "rgb": {r:244,g:244,b:244},
-    "color": "White",
-  },
-]
+
+class legos{
+  constructor(){
+    this.colors = [
+      {//0
+        "rgb": {r:19,g:19,b:19},
+        "color": "Black",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//1
+        "rgb": {r:221,g:196,b:142},
+        "color": "Brick Yellow",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//2
+        "rgb": {r:0,g:108,b:183},
+        "color": "Bright Blue",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//3
+        "rgb": {r:150,g:199,b:83},
+        "color": "Bright Green",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//4
+        "rgb": {r:245,g:136,b:48},
+        "color": "Bright Orange",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//5
+        "rgb": {r:221,g:26,b:33},
+        "color": "Bright Red",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//6
+        "rgb": {r:225,g:205,b:3},
+        "color": "Bright Yellow",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//7
+        "rgb": {r:154,g:202,b:60},
+        "color": "Bright Yellowish Green",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//8
+        "rgb": {r:0,g:146,b:71},
+        "color": "Dark Green",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//9
+        "rgb": {r:100,g:103,b:101},
+        "color": "Dark Stone Grey",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//10
+        "rgb": {r:246,g:173,b:205},
+        "color": "Light Purple",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//11
+        "rgb": {r:76,g:47,b:146},
+        "color": "Medium Lilac",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//12
+        "rgb": {r:175,g:116,b:70},
+        "color": "Medium Nougat",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//13
+        "rgb": {r:160,g:161,b:159},
+        "color": "Medium Stone Grey",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//14
+        "rgb": {r:105,g:46,b:20},
+        "color": "Reddish Brown",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//15
+        "rgb": {r:135,g:141,b:143},
+        "color": "Silver Metallic",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+      {//16
+        "rgb": {r:244,g:244,b:244},
+        "color": "White",
+        "num": 0,
+        "quad_freq":0,
+        "total_freq":0,
+      },
+    ]
+  }
+
+  //setColorNum(count) sets the color's num member variable equal to the count paramter
+  // only if the color did not already have a number set (i.e equal to 0)
+  // function returns true if the color's num variable was set for the first time.
+  setColorNum(rgb, count){
+    var key=(rgb.r+"").concat(rgb.g+"").concat(rgb.b+"");
+    console.log("key "+key);
+    var index=ht.get(parseInt(key)); //from hashtable O(1);
+    
+    this.colors[index].quad_freq++;
+    if(this.colors[index].num==0){
+      this.colors[index].num=count;
+      return true;
+    }
+    return false;
+  }
+
+  getColorNum(rgb){
+    var key=(rgb.r+"").concat(rgb.g+"").concat(rgb.b+"");
+    if(key==221196142){
+
+    }
+    var index=ht.get(parseInt(key)); //from hashtable O(1);
+    return this.colors[index].num;
+  }
+
+  reset_num_quadfreq(){
+    var len=this.colors;
+    for(var i=0;i<len;i++){
+      this.colors[i].quad_freq=0;
+    }
+  }
+}
+
+const lego = new legos();
+
+
+
+
+
+
 
 //getColorsSelected() returns the colors selected in the drop down
 function getColorsSelected(){
-  var len=legocolors.length;
-  console.log(len);
+  var len=lego.colors.length;
+  //console.log(len);
   var selected=[];
   for(var i=0;i<len;i++){
     var id=""+i;
@@ -259,41 +438,37 @@ function getColorsSelected(){
       selected.push(i);
     }
   }
-  console.log(selected);
+  //console.log(selected);
   return selected;
 }
 
 //closest_lego_color(input ,rgb_pixels) compares the rgb paramter input to the
-// array of legocolors, and returns the closest color
+// array of lego.colors, and returns the closest color
 //O(n)
-var print=true; //for testing;
+
 var r_weight=0.3; //0.3
 var g_weight=0.3; //0.59
 var b_weight=0.3; //0.11
 function closest_lego_color(input ,rgb_pixels, selected_colors){
   var index=selected_colors[0];
-  var closest_color=legocolors[index];
+  var closest_color=lego.colors[index];
 
-  var closest_distance=Math.pow(r_weight * (input.r-legocolors[index].rgb.r),2)
-  + Math.pow(g_weight * (input.g-legocolors[index].rgb.g),2)
-  + Math.pow(b_weight * (input.b-legocolors[index].rgb.b),2);
+  var closest_distance=Math.pow(r_weight * (input.r-lego.colors[index].rgb.r),2)
+  + Math.pow(g_weight * (input.g-lego.colors[index].rgb.g),2)
+  + Math.pow(b_weight * (input.b-lego.colors[index].rgb.b),2);
 
   var len=selected_colors.length;
   for(var i=0;i<len;i++){
     index=selected_colors[i];
-    var d= Math.pow(r_weight * (input.r-legocolors[index].rgb.r),2)
-    + Math.pow(g_weight * (input.g-legocolors[index].rgb.g),2)
-    + Math.pow(b_weight * (input.b-legocolors[index].rgb.b),2);
-    if(print){
-      console.log(d);
-    }
-    
+    var d= Math.pow(r_weight * (input.r-lego.colors[index].rgb.r),2)
+    + Math.pow(g_weight * (input.g-lego.colors[index].rgb.g),2)
+    + Math.pow(b_weight * (input.b-lego.colors[index].rgb.b),2);
+
     if(d<closest_distance){
       closest_distance=d;
-      closest_color=legocolors[index];
+      closest_color=lego.colors[index];
     }
   }
-  print=false;
   return closest_color;
 }
 
@@ -312,28 +487,8 @@ function showCheckboxes() {
   }
 }
 
-/*
-for(var row=0; row < height; row+=scale){
-  for(var col=0; col < width; col+=scale){
 
-    var rgb=getAvrg(scale,row,col,rgb_pixels);
-    
-    var lego_color=closest_lego_color(rgb,rgb_pixels,selected_colors);
-    rgb=lego_color.rgb;
-
-    console.log(rgb);
-    rgb_avrg_pixels[row_avrg][col_avrg]=rgb;
-    col_avrg++;
-
-    var col_hex_string=RGBToHex(rgb.r,rgb.g,rgb.b);
-    
-    ctx.beginPath();
-    ctx.fillStyle = col_hex_string;
-    ctx.arc(col+(scale/2),row+(scale/2), scale/2, 0, 2 * Math.PI);
-    ctx.fill();
-  }
-  */
-
+var count=1; //count will a unique reference to each lego color (refer to building instructions to see purpose)
 //print_quadrant(row,col,length) appendes the created canvas to the html
 function print_quadrant(row,col,length){
 
@@ -370,7 +525,6 @@ function print_quadrant(row,col,length){
       var col_hex_string=RGBToHex(rgb.r,rgb.g,rgb.b);
 
       ctx.beginPath();
-      
       var stroke_width=global_scale/4;
       ctx.strokeStyle = col_hex_string;
       ctx.arc((col_count*global_scale*2)+(global_scale),(row_count*global_scale*2)+(global_scale), global_scale-(stroke_width/2) , 0, 2 * Math.PI);
@@ -378,13 +532,20 @@ function print_quadrant(row,col,length){
       ctx.lineWidth=stroke_width;
       ctx.stroke();
 
+      if(lego.setColorNum(rgb,count)){
+        count++;
+      }
+      var num=lego.getColorNum(rgb);
+
+      
       //Draw respective number
       ctx.font = global_scale+"px Arial";
       ctx.textAlign = 'center';
       ctx.textBaseline= 'middle';
-      ctx.fillText("10",(col_count*global_scale*2)+(global_scale), ((row_count*global_scale*2)+(global_scale)));
-      ctx
 
+
+
+      ctx.fillText(""+num,(col_count*global_scale*2)+(global_scale), ((row_count*global_scale*2)+(global_scale)));
 
       col_count++;
     }
@@ -404,6 +565,7 @@ function generate_quadrant(quadrent){
     alert("No Image Generated.\nPlease Click Generate");
     return 
   }
+   lego.reset_num_quadfreq();
    const parse=quadrent.split(" ");
    const row=parse[0];
    const col=parse[1];
@@ -428,7 +590,7 @@ function generate_quadrant(quadrent){
     }
     col_portion+=1/width_height;
   }
-  console.log(row_portion,col_portion);
+  //(row_portion,col_portion);
 
   const height=rgb_avrg.length;
   const width=rgb_avrg[0].length;
@@ -440,6 +602,8 @@ function generate_quadrant(quadrent){
   print_quadrant(height_index,width_index,~~(height/width_height));
 
 
+  //Now we also display the referenced number and quantity in the list element
+  createlist();
 }
 
 //Create eventListener for the displying instruction buttons
@@ -453,3 +617,49 @@ element.addEventListener("click", () => {
   });
 }
 
+//compare_num(a,b) will be used to compare the memeber variable for the color objects
+// the member variable being the num feild.
+// We then use this function to sort the lego.colors array based on each obj num variable
+function compare(a,b) {
+  if ( a.num < b.num ){
+    return -1;
+  }
+  if ( a.num > b.num ){
+    return 1;
+  }
+  return 0;
+}
+
+//createlits() creates a list of the lego.colors currently needing to be displyed for instructions
+function createlist() {
+  //first remove existing <li> elements 
+  // var liObjs = document.getElementsByTagName("UL");
+  // var len=liObjs.length;
+  // console.log(liObjs,len);
+  // for(var i=0;i<len;i++){
+  //   liObjs.getElementsByTagName("LI").remove();
+  // }
+  var root=document.getElementById("thelist");
+  while( root.firstChild ){
+    root.removeChild( root.firstChild );
+  }
+  
+  //now we add new <li> elements
+  var completelist= document.getElementById("thelist");
+  
+  len=lego.colors.length;
+  var temp=[...lego.colors];
+
+  //sort the colors based on num field
+  temp.sort(compare);
+
+  for(var i=0;i<len;i++){
+    if(temp[i].quad_freq!=0){
+      var str_quad_freq=""+temp[i].quad_freq;
+      var str_num=""+temp[i].num;
+      var str_color=temp[i].color;
+      var str=str_num+": "+str_color+"            x "+str_quad_freq;
+      completelist.innerHTML += "<li>"+str+"</li>";
+    }
+  }
+}
