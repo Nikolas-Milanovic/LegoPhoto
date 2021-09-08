@@ -659,13 +659,13 @@ function createlist() {
   // for(var i=0;i<len;i++){
   //   liObjs.getElementsByTagName("LI").remove();
   // }
-  var root=document.getElementById("thelist");
+  var root=document.getElementById("color-list");
   while( root.firstChild ){
     root.removeChild( root.firstChild );
   }
   
   //now we add new <li> elements
-  var completelist= document.getElementById("thelist");
+  var completelist= document.getElementById("color-list");
   
   len=lego.colors.length;
   var temp=[...lego.colors];
@@ -678,9 +678,9 @@ function createlist() {
       var str_quad_freq=""+temp[i].quad_freq;
       var str_num=""+temp[i].num;
       var str_color=temp[i].color;
-      var str=str_num+": "+str_color+"            x "+str_quad_freq;
+      var str=str_num+": "+str_color+"<br>  x "+str_quad_freq;
       var id="id=\"_"+temp[i].index+"\"";
-      completelist.innerHTML += "<li "+id+">"+str+"</li>";
+      completelist.innerHTML += "<li "+id+">  "+str+"</li>";
 
     }
   }

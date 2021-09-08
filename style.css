@@ -345,6 +345,84 @@ a{
 }
 
 
+
+
+#share_page{
+  position: absolute;
+  display:inline;
+  max-width:30%;
+  right: 0px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+/* INSTRUCTIONS*/
+.grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 50px;
+}
+
+.cell {
+  padding: 10px;
+  background-color: rgb(0,108,180);
+  border: 3px solid rgb(0,108,180);
+  color: white;
+}
+
+.cell:hover{
+  background-color: white;
+  color:black;
+}
+
+
+.instructions{
+  display: flex;
+  align-items: center;
+  justify-content: center; /*horizontally*/
+}
+
+.colors-required{
+  margin:10px;
+  margin-left:40px;
+  width:auto;
+  height: auto;
+  max-height: 400px;
+  overflow-y: scroll;
+
+  
+}
+
+.instructions li{
+  height:60px;
+  width:auto;
+  border: 1px solid black;
+  white-space: pre;
+  padding-right: 80px;
+}
+br{
+  white-space: pre;
+}
+
+
+.output_instructions{
+  width: auto;
+  height: auto;
+  display: flex;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+
+.output_instructions canvas{
+  height: 100%;
+  width: 100%;
+}
+
+
 /*FOR MOBILE DISPLAY*/
 @media screen and (max-width: 950px) {
   canvas{
@@ -376,69 +454,19 @@ a{
     width: 80%;
   }
   #share_page{
-    padding-right: 5px;
+    padding-right: 0px;
   }
+  .instructions{
+    display: inline-block;
+  }
+  .instructions li{
+    margin-left:25%;
+    max-width: 50%;
+  }
+  a{
+    font-size: 15px;
+  }
+  .output_instructions{
+    padding-top: 0px;
 }
-
-#share_page{
-  position: absolute;
-  display:inline;
-  max-width:30%;
-  right: 0px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-}
-
-/* INSTRUCTIONS*/
-.grid {
-  display: grid;
-  grid-gap: 1px;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 50px;
-}
-
-.cell {
-  padding: 10px;
-  background-color: rgb(0,108,180);
-  border: 3px solid rgb(0,108,180);
-  color: white;
-}
-
-.cell:hover{
-  background-color: white;
-  color:black;
-}
-
-.colors-required{
-  margin:10px;
-  margin-left:40px;
-  width:auto;
-  overflow-y: scroll;
-  height:400px;
-  border: 1px solid rgb(0,108,180);
-}
-
-.colors-required li{
-  height:25px;
-  border: 1px solid rgb(0,108,180);
-}
-
-.output_instructions{
-  width: 100%;
-  height: auto;
-  display: flex;
-  padding: 50px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: 1px solid rgb(0,108,180);
-  
-}
-.output_instructions canvas{
-  height: auto;
-  width: auto;
-  border: 1px solid rgb(0,108,180);
-}
-
-
 
