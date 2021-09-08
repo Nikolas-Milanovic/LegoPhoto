@@ -193,14 +193,14 @@ class HashTable {
 
   get(key) {
     const index = this._hash(key);
-    console.log("index:",index);
+    //console.log("index:",index);
     if (this.table[index]) {
       for (let i = 0; i < this.table.length; i++) {
-        console.log(this.table);
-        console.log(this.table[index]);
-        console.log(this.table[index][i]);
-        console.log(this.table[index][i][0]);
-        console.log(key,this.table[index][i][0]);
+        // console.log(this.table);
+        // console.log(this.table[index]);
+        // console.log(this.table[index][i]);
+        // console.log(this.table[index][i][0]);
+        // console.log(key,this.table[index][i][0]);
         if (this.table[index][i][0] === key) {
           return this.table[index][i][1];
         }
@@ -270,6 +270,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":0,
       },
       {//1
         "rgb": {r:221,g:196,b:142},
@@ -277,6 +278,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":1,
       },
       {//2
         "rgb": {r:0,g:108,b:183},
@@ -284,6 +286,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":2,
       },
       {//3
         "rgb": {r:150,g:199,b:83},
@@ -291,6 +294,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":3,
       },
       {//4
         "rgb": {r:245,g:136,b:48},
@@ -298,6 +302,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":4,
       },
       {//5
         "rgb": {r:221,g:26,b:33},
@@ -305,6 +310,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":5,
       },
       {//6
         "rgb": {r:225,g:205,b:3},
@@ -312,6 +318,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":6,
       },
       {//7
         "rgb": {r:154,g:202,b:60},
@@ -319,6 +326,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":7,
       },
       {//8
         "rgb": {r:0,g:146,b:71},
@@ -326,6 +334,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":8,
       },
       {//9
         "rgb": {r:100,g:103,b:101},
@@ -333,6 +342,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":9,
       },
       {//10
         "rgb": {r:246,g:173,b:205},
@@ -340,6 +350,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":10,
       },
       {//11
         "rgb": {r:76,g:47,b:146},
@@ -347,6 +358,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":11,
       },
       {//12
         "rgb": {r:175,g:116,b:70},
@@ -354,6 +366,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":12,
       },
       {//13
         "rgb": {r:160,g:161,b:159},
@@ -361,6 +374,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":13,
       },
       {//14
         "rgb": {r:105,g:46,b:20},
@@ -368,6 +382,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":14,
       },
       {//15
         "rgb": {r:135,g:141,b:143},
@@ -375,6 +390,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":15,
       },
       {//16
         "rgb": {r:244,g:244,b:244},
@@ -382,6 +398,7 @@ class legos{
         "num": 0,
         "quad_freq":0,
         "total_freq":0,
+        "index":16,
       },
     ]
   }
@@ -391,7 +408,7 @@ class legos{
   // function returns true if the color's num variable was set for the first time.
   setColorNum(rgb, count){
     var key=(rgb.r+"").concat(rgb.g+"").concat(rgb.b+"");
-    console.log("key "+key);
+    //console.log("key "+key);
     var index=ht.get(parseInt(key)); //from hashtable O(1);
     
     this.colors[index].quad_freq++;
@@ -412,14 +429,17 @@ class legos{
   }
 
   reset_num_quadfreq(){
-    var len=this.colors;
+    var len=this.colors.length;
+    console.log(len);
     for(var i=0;i<len;i++){
+      console.log("before",this.colors[i].quad_freq);
       this.colors[i].quad_freq=0;
+      console.log("after",this.colors[i].quad_freq);
     }
   }
 }
 
-const lego = new legos();
+let lego = new legos();
 
 
 
@@ -508,9 +528,9 @@ function print_quadrant(row,col,length){
   var width= (~~(rgb_avrg[0].length/3)+1)*global_scale*2;
   c_intructions.setAttribute("width",width);
   c_intructions.setAttribute("height",height);
-  console.log("h:"+c_intructions.height);
+  //console.log("h:"+c_intructions.height);
   var ctx = c_intructions.getContext("2d");
-  console.log(rgb_avrg);
+  //console.log(rgb_avrg);
 
   var col_count=0;
   var row_count=0;
@@ -659,7 +679,9 @@ function createlist() {
       var str_num=""+temp[i].num;
       var str_color=temp[i].color;
       var str=str_num+": "+str_color+"            x "+str_quad_freq;
-      completelist.innerHTML += "<li>"+str+"</li>";
+      var id="id=\"_"+temp[i].index+"\"";
+      completelist.innerHTML += "<li "+id+">"+str+"</li>";
+
     }
   }
 }
