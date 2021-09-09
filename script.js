@@ -113,6 +113,7 @@ let c_intructions = document.createElement("canvas");
 
       //append canvas variable c to html 
       document.getElementById("output").appendChild(c);
+      total_cost();
 
   };
   
@@ -653,13 +654,6 @@ function compare(a,b) {
 
 //createlits() creates a list of the lego.colors currently needing to be displyed for instructions
 function createlist() {
-  //first remove existing <li> elements 
-  // var liObjs = document.getElementsByTagName("UL");
-  // var len=liObjs.length;
-  // console.log(liObjs,len);
-  // for(var i=0;i<len;i++){
-  //   liObjs.getElementsByTagName("LI").remove();
-  // }
   var root=document.getElementById("color-list");
   while( root.firstChild ){
     root.removeChild( root.firstChild );
@@ -683,6 +677,39 @@ function createlist() {
       var id="id=\"_"+temp[i].index+"\"";
       completelist.innerHTML += "<li "+id+">  "+str+"</li>";
 
+    }
+  }
+}
+
+function total_cost(){
+  var total=document.getElementsByTagName("h1")[0];
+  var height=rgb_avrg.length;
+  var width=rgb_avrg[0].length;
+  var size=height*width;
+  var str_size=""+size;
+  total.innerHTML= "Total Cost: "+size+"pieces x $0.06 CAD/piece = $"+ (size*0.06) +" CAD";
+
+
+  
+  var key,index;
+
+  for(var row=0;row<height;row++){
+    for(var col=0;col<width;col++){
+      var rgb=rgb_avrg[row][col];
+      key=(rgb.r+"").concat(rgb.g+"").concat(rgb.b+"");
+      index=ht.get(parseInt(key));
+      lego.colors[index].total_freq++;
+    }
+  }
+
+
+  var total_legos=document.getElementsByClassName("total-legos")[0];
+  var len=lego.colors.length;
+  for(var i=0;i<len;i++){
+    if(lego.colors[i].total_freq!=0){
+      var id="id=\"_"+lego.colors[i].index+"\"";
+      console.log("<div "+id+">"+lego.colors[i].color+": x "+lego.colors[i].total_freq+"</div>");
+      total_legos.innerHTML+="<div "+id+">"+lego.colors[i].color+": x "+lego.colors[i].total_freq+"</div>";
     }
   }
 }

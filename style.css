@@ -17,11 +17,6 @@ header{
     padding-top:35px;
 }
 
-h1{
-    font-style: italic;
-    color:  #ffffff;
-}
-
 img{
     width: 100%;
 }
@@ -396,7 +391,7 @@ a{
 
 .instructions li{
   height:60px;
-  width:auto;
+  width: 300px;
   border: 1px solid black;
   white-space: pre;
   padding-right: 80px;
@@ -419,7 +414,6 @@ br{
 .output_instructions canvas{
   height: 100%;
   width: 100%;
-  border: 1px solid black;
 }
 
 
@@ -461,12 +455,32 @@ br{
   }
   .instructions li{
     margin-left:25%;
-    max-width: 50%;
+    max-width: 75%;
   }
   a{
     font-size: 15px;
   }
   .output_instructions{
     padding-top: 0px;
+  }
 }
 
+.total-cost{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.total-legos{
+  text-align: center;
+}
+
+.total-legos div{
+  display: inline-block;
+  width:auto;
+  border: 3px solid black;
+  Padding: 25px;
+  font-size: 20px;
+  margin: 20px;
+}
