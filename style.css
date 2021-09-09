@@ -38,7 +38,6 @@ canvas{
 
 .intro p{
   font-weight: 500;
-  margin-left: 40px;
   padding: 50px;
   text-align: center;
 }
@@ -456,6 +455,8 @@ br{
   margin: auto;
 }
 .dimensions label{
+  margin-left:10px;
+  margin-right:10px;
   padding: 10px 25px;
   font-size: 20px;
   font-weight: 500;
@@ -554,6 +555,10 @@ br{
   .intro{
     font-size: 15px;
     margin: 0px;
+  }
+  .intro p{
+    font-weight: 500;
+    padding: 25px;
   }
   .intro img{
     width: 30%;

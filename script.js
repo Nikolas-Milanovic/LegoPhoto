@@ -703,7 +703,7 @@ function total_cost(){
   var width=rgb_avrg[0].length;
   var size=height*width;
   var str_size=""+size;
-  total.innerHTML= "Total Cost: "+size+"pieces x $0.06 CAD/piece = $"+ Math.round(size*0.06) +" CAD";
+  total.innerHTML= "Total Cost: "+size+" pieces x $0.06 CAD/piece = $"+ Math.round(size*0.06) +" CAD";
 
 
   
