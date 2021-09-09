@@ -115,6 +115,7 @@ let c_intructions = document.createElement("canvas");
       document.getElementById("output").appendChild(c);
       total_cost();
       download();
+      document.getElementById("dimensions").removeAttribute("hidden");
   };
 
   function download(){
@@ -437,6 +438,13 @@ class legos{
       this.colors[i].quad_freq=0;
     }
   }
+
+  reset_num_totalfreq(){
+    var len=this.colors.length;
+    for(var i=0;i<len;i++){
+      this.colors[i].total_freq=0;
+    }
+  }
 }
 
 let lego = new legos();
@@ -689,12 +697,13 @@ function createlist() {
 }
 
 function total_cost(){
-  var total=document.getElementsByTagName("h1")[0];
+  lego.reset_num_totalfreq();
+  var total=document.getElementById("total");
   var height=rgb_avrg.length;
   var width=rgb_avrg[0].length;
   var size=height*width;
   var str_size=""+size;
-  total.innerHTML= "Total Cost: "+size+"pieces x $0.06 CAD/piece = $"+ (size*0.06) +" CAD";
+  total.innerHTML= "Total Cost: "+size+"pieces x $0.06 CAD/piece = $"+ Math.round(size*0.06) +" CAD";
 
 
   
@@ -711,6 +720,7 @@ function total_cost(){
 
 
   var total_legos=document.getElementsByClassName("total-legos")[0];
+  total_legos.innerHTML="";
   var len=lego.colors.length;
   for(var i=0;i<len;i++){
     if(lego.colors[i].total_freq!=0){
@@ -719,4 +729,7 @@ function total_cost(){
       total_legos.innerHTML+="<div "+id+">"+lego.colors[i].color+": x "+lego.colors[i].total_freq+"</div>";
     }
   }
+
+  var dimensions=document.getElementById("dimensions");
+  dimensions.innerHTML="Height: "+height+" pieces,  Width: "+width+" pieces";
 }

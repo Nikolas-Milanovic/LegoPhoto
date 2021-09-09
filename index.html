@@ -13,6 +13,25 @@
 
       <hr style="width:100%", size="10px", color=black>  
 
+      <!-- intro paragraph-->
+      <div class="intro">
+        <p>
+        Welcome to <i> My Lego Photo </i>. Simply drag or browse a file to upload your image and then click <bold> generate <bold> to see the result.
+          What appears is a lego photo to be made out of 1 by 1 lego plates for you to build!<br><br><br>
+          
+          The colours used in the resulting photo are all colours available on <a href="https://www.lego.com/en-us/page/static/pick-a-brick?query=1%20by%201%20circle%20plate&page=1&filters.i0.key=variants.attributes.designNumber&filters.i0.values.i0=6141">lego.com</a> 
+          that can be purchased today. If you don’t like a colour used in the resulting lego photo then you can deselect it in the drop down.<br><br>
+          
+          For greater customization you can also change the scale field. The greater the scale value the fewer lego pieces are required.<br><br>
+          
+          Finally, once you’ve generated a lego photo, building instructions are located at the bottom of the page.<br><br>
+          
+          Check out this example where you input a photo of ironman. <br><br>
+          <img src="ironman.jpeg" alt="ironman"> <img src="right-arrow.png" alt="ironman"> <img src="MyLegoPhoto.jpeg" alt="ironman resulting img">
+        </p>
+      </div>
+
+
       <!--Drag and Drop html-->
       <div class="container">
         <div class="drag-area">
@@ -31,7 +50,7 @@
           <div class="multiselect">
             <div class="selectBox" onclick="showCheckboxes()">
               <select id="select_dropdown">
-                <option>Select Lego Colors</option>
+                <option>Select Lego Colours</option>
               </select>
               <div class="overSelect"></div>
             </div>
@@ -83,6 +102,7 @@
       <!--canvas is appended to div output tag -->
       <div class="output" id="output">
       </div>
+      <div class="dimensions"><label id="dimensions" hidden></label></div>
   
       <div class="grid" id="grid">
         <div class="cell">Top Left</div>
@@ -94,6 +114,13 @@
         <div class="cell">Bottom Left</div>
         <div class="cell">Bottom Middle</div>
         <div class="cell">Bottom Right</div>
+      </div>
+
+      <div class="info">
+        <p>
+          Click the grid above to view the building instructions for any 1 of the 9 quadrants<br>
+          Continue down the page for a summary of the total pieces required.
+        </p>
       </div>
 
       <!--instructions-->
@@ -108,10 +135,12 @@
         <div class="output_instructions"></div>
       </div>
 
+      
+      <hr style="width:95%; margin: auto;", size="1px", color=black>  
       <div class="total-legos"></div>
 
       <div class="total-cost">
-        <h1 id="total"></h1>
+        <div id="total"></div>
       </div>
 
       <!--footer-->
