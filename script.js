@@ -196,11 +196,6 @@ class HashTable {
     //console.log("index:",index);
     if (this.table[index]) {
       for (let i = 0; i < this.table.length; i++) {
-        // console.log(this.table);
-        // console.log(this.table[index]);
-        // console.log(this.table[index][i]);
-        // console.log(this.table[index][i][0]);
-        // console.log(key,this.table[index][i][0]);
         if (this.table[index][i][0] === key) {
           return this.table[index][i][1];
         }
@@ -430,11 +425,8 @@ class legos{
 
   reset_num_quadfreq(){
     var len=this.colors.length;
-    console.log(len);
     for(var i=0;i<len;i++){
-      console.log("before",this.colors[i].quad_freq);
       this.colors[i].quad_freq=0;
-      console.log("after",this.colors[i].quad_freq);
     }
   }
 }
@@ -510,24 +502,26 @@ function showCheckboxes() {
 
 var count=1; //count will a unique reference to each lego color (refer to building instructions to see purpose)
 //print_quadrant(row,col,length) appendes the created canvas to the html
-function print_quadrant(row,col,length){
+function print_quadrant(row,col,height,width){
 
   const original_col=col;
-  var len_row=row+length;
+  var len_row=row+height;
   if(len_row>rgb_avrg.length){
-    len_row=rgb_avrg.length-1;
+    len_row=rgb_avrg.length;
   }
 
-  var len_col=col+length;
+  var len_col=col+width;
   if(len_col>=rgb_avrg[0].length){
-    len_col=rgb_avrg[0].length-1;
+    len_col=rgb_avrg[0].length;
   }
 
   
-  var height=(~~(rgb_avrg.length/3)+1)*global_scale*2;
-  var width= (~~(rgb_avrg[0].length/3)+1)*global_scale*2;
-  c_intructions.setAttribute("width",width);
-  c_intructions.setAttribute("height",height);
+  // var height=(~~(rgb_avrg.length/3)+1)*global_scale*2;
+  // var width= (~~(rgb_avrg[0].length/3)+1)*global_scale*2;
+  var canvas_height=height*global_scale*2;
+  var canvas_width=width*global_scale*2;
+  c_intructions.setAttribute("width",canvas_width);
+  c_intructions.setAttribute("height",canvas_height);
   //console.log("h:"+c_intructions.height);
   var ctx = c_intructions.getContext("2d");
   //console.log(rgb_avrg);
@@ -601,25 +595,32 @@ function generate_quadrant(quadrent){
     if(0==row.localeCompare(rows[i])){
        break;
      }
-     row_portion+=1/width_height;
+     row_portion+=1;
     }
 
    for(var i=0;i<width_height;i++){
     if(0==col.localeCompare(cols[i])){
       break;
     }
-    col_portion+=1/width_height;
+    col_portion+=1;
   }
   //(row_portion,col_portion);
 
   const height=rgb_avrg.length;
   const width=rgb_avrg[0].length;
-  const height_index=~~(height*row_portion);
-  const width_index=~~(width*col_portion);
-  //console.log(height_index,width_index);
+
+  var quad_height=~~(height/width_height)+1;
+  var quad_width=~~(width/width_height)+1;
+  console.log(quad_width,quad_height);
+
+  const height_index=quad_height*row_portion;
+  const width_index=quad_width*col_portion;
+  
+  console.log("y,x >>>",height_index,width_index);
 
   //console.log("len"+~~(height/width_height))
-  print_quadrant(height_index,width_index,~~(height/width_height));
+ 
+  print_quadrant(height_index,width_index,quad_height,quad_width);
 
 
   //Now we also display the referenced number and quantity in the list element

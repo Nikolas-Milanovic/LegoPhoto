@@ -414,12 +414,12 @@ br{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
 }
 
 .output_instructions canvas{
   height: 100%;
   width: 100%;
+  border: 1px solid black;
 }
 
 
