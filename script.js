@@ -114,8 +114,15 @@ let c_intructions = document.createElement("canvas");
       //append canvas variable c to html 
       document.getElementById("output").appendChild(c);
       total_cost();
-
+      download();
   };
+
+  function download(){
+    var link = document.createElement('a');
+    link.download = 'MyLegoPhoto.jpeg';
+    link.href = c.toDataURL()
+    link.click();
+  }
   
 
   //getAvrg(scale,x,y,rgb_pixels) uses the rgb data stored in the rgb_pixels 2D array. To then get the average color of the pixels
