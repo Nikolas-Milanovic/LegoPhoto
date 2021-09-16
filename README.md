@@ -5,7 +5,7 @@ The Web app is live and being hosted with GitHub Pages
 
 Click the link to check it out >>> https://nikolas-milanovic.github.io/LegoPhoto/
 
-Instructions are given on the website. In Simple terms, *My Lego Photo* takes a photo you uploaded and then outputs a photo using 1 by 1 Lego plates using a dictionary of 17 different colours pieces that can be purchased on lego.com. Some photos work better than others due to the limited colours. Hopefully you can find an intriguing result. 
+Instructions are given on the website. In simple terms, *My Lego Photo* takes a photo that you upload and then outputs a photo using 1 by 1 Lego plates using a dictionary of 17 different colours pieces that can be purchased on lego.com. Some photos work better than others due to the limited colours. Hopefully you can find an intriguing result. 
 
 Details:
 * Used node.js for all the back-end processing:
