@@ -9,13 +9,10 @@ Instructions are given on the website. In Simple terms, *My Lego Photo* takes a 
 
 Details:
 * Used node.js for all the back-end processing:
-  > Incorporated OOP design, to make the code more user friendly to understand and scale for the future
-  
-  > Thoroughly practiced good code design, commenting my code throughout
-  
-  > Used efficient algorithms, like a hash table to optimize the run-time
+  - Incorporated OOP design, to make the code more user friendly to understand and scale for the future <br>
+  - Thoroughly practiced good code design, commenting my code throughout <br>
+  - Used efficient algorithms, like a hash table to optimize the run-time
 * Used Git to manage my workflow
 * Advanced my knowledge with HTML/CSS
-  > Learned several different CSS attributes to organize and present my application
-  
-  > Learned new elements in HTML to create a more elegant design. 
+  - Learned several different CSS attributes to organize and present my application <br>
+  - Learned new elements in HTML to create a more elegant design. 
