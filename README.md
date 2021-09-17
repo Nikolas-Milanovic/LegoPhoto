@@ -14,5 +14,6 @@ Details:
   - Used efficient algorithms, like a hash table to optimize the run-time
 * Used Git to manage my workflow
 * Advanced my knowledge with HTML/CSS
-  - Learned several different CSS attributes to organize and present my application <br>
+  - Learned several different CSS attributes to organize and present my application<br>
+  - **Website is dynamic - mobile-friendly**
   - Learned new elements in HTML to create a more elegant design. 
